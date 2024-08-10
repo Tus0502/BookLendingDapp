@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookLending DApp</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.6.0/dist/web3.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>BookLending DApp</h1>
+
+    <!-- Connect Wallet Section -->
+    <div id="connect-wallet">
+      <button onclick="connectWallet()">Connect Wallet</button>
+      <p id="user-address"></p>
+    </div>
+
+
+    <div id="book-lending">
+
+      <!-- Add Book Section -->
+      <div class="card mt-4">
+        <div class="card-header">
+          <h3>Add a New Book</h3>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+              <label for="bookTitle">Book Title</label>
+              <input type="text" class="form-control" id="bookTitle" placeholder="Enter book title">
+            </div>
+            <div class="form-group">
+              <label for="author">Author</label>
+              <input type="text" class="form-control" id="author" placeholder="Enter book Author">
+            </div>
+        
+
+            <button onclick="addBook()" class="btn btn-primary">Add Book</button>
+        </div>
+      </div>
+
+
+      <!-- Borrow Book Section -->
+      <div class="card mt-4">
+        <div class="card-header">
+          <h3>Borrow Book</h3>
+        </div>
+        <div class="card-body">
+          <form id="addBookForm" onsubmit="borrowBook(); return false;">
+            <div class="form-group">
+              <label for="bookTitle">Book Title</label>
+              <input type="text" class="form-control" id="bookidborrow" placeholder="Enter book title">
+            </div>
+            <button type="submit" class="btn btn-primary">Borrow Book</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Return Book Section -->
+      <div class="card mt-4">
+        <div class="card-header">
+          <h3>Return Book</h3>
+        </div>
+        <div class="card-body">
+          <form id="addBookForm" onsubmit="returnBook(); return false;">
+            <div class="form-group">
+              <label for="bookID">Book ID</label>
+              <input type="text" class="form-control" id="bookIDreturn" placeholder="Enter book ID">
+            </div>
+            <button type="submit" class="btn btn-primary">Return Book</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Update Book Section -->
+      <div class="card mt-4">
+        <div class="card-header">
+          <h3>Update Book</h3>
+        </div>
+        <div class="card-body">
+          <form id="addBookForm" onsubmit="updateBook(); return false;">
+            <div class="form-group">
+              <label for="bookTitle">Book Title</label>
+              <input type="text" class="form-control" id="bookIdUpdate" placeholder="Enter book Id">
+              <input type="text" class="form-control" id="bookTitleUpdate" placeholder="Enter book title">
+            </div>
+            <button type="submit" class="btn btn-primary">Update Book</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- View Added Book Section -->
+      <div id="view-reservations-active">
+        <h2> Book Transactions</h2>
+        <table id="tablebooks">
+          <tr>
+            <th>Book ID </th>
+            <th>Book Title </th>
+            <th>Book Author</th>
+            <th>Borrower</th>
+            <th>Book Availability</th>
+          </tr>
+
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
